@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Analytics Courses</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .search-bar {
+      max-width: 400px;
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #007bff;
+    }
+
+    .card p {
+      color: #555;
+    }
+
+    .card button {
+      margin-top: 10px;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .card button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Analytics Courses</h1>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search by course name..." onkeyup="filterCourses()">
+  </div>
+
+  <div class="courses" id="courseContainer">
+    <!-- Courses will be inserted dynamically -->
+  </div>
+
+  <script>
+    const courses = [
+      {
+        title: "Google Analytics for Beginners",
+        description: "Learn how to set up and analyze data using GA4.",
+        link: "#"
+      },
+      {
+        title: "Advanced Google Tag Manager",
+        description: "Master GTM setup, triggers, variables, and tags.",
+        link: "#"
+      },
+      {
+        title: "Marketing Analytics with Python",
+        description: "Data-driven marketing insights using Python.",
+        link: "#"
+      },
+      {
+        title: "Data Visualization with Power BI",
+        description: "Build dashboards and reports with Power BI.",
+        link: "#"
+      },
+      {
+        title: "SQL for Marketing Analytics",
+        description: "Use SQL to segment audiences and measure performance.",
+        link: "#"
+      }
+    ];
+
+    function renderCourses(courseList) {
+      const container = document.getElementById('courseContainer');
+      container.innerHTML = '';
+
+      courseList.forEach(course => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3>${course.title}</h3>
+          <p>${course.description}</p>
+          <button onclick="window.location.href='${course.link}'">View Course</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterCourses() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = courses.filter(c => c.title.toLowerCase().includes(query));
+      renderCourses(filtered);
+    }
+
+    // Initial load
+    renderCourses(courses);
+  </script>
+
+</body>
+</html>
