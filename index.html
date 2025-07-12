@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KWF4Q8D6');</script>
-<!-- End Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KWF4Q8D6');</script>
+  <!-- End Google Tag Manager -->
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -67,7 +67,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: #555;
     }
 
-    .card button {
+    .course-link {
+      display: inline-block;
       margin-top: 10px;
       background-color: #007bff;
       color: white;
@@ -75,14 +76,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border: none;
       border-radius: 6px;
       cursor: pointer;
+      text-decoration: none;
+      text-align: center;
     }
 
-    .card button:hover {
+    .course-link:hover {
       background-color: #0056b3;
     }
   </style>
 </head>
 <body>
+
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWF4Q8D6"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -103,27 +107,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       {
         title: "Google Analytics for Beginners",
         description: "Learn how to set up and analyze data using GA4.",
-        link: "#"
+        link: "https://shivaprakash2221.github.io/AdsCourses/"
       },
       {
         title: "Advanced Google Tag Manager",
         description: "Master GTM setup, triggers, variables, and tags.",
-        link: "#"
+        link: "https://shivaprakash2221.github.io/AdsCourses/"
       },
       {
         title: "Marketing Analytics with Python",
         description: "Data-driven marketing insights using Python.",
-        link: "#"
+        link: "https://shivaprakash2221.github.io/AdsCourses/"
       },
       {
         title: "Data Visualization with Power BI",
         description: "Build dashboards and reports with Power BI.",
-        link: "#"
+        link: "https://shivaprakash2221.github.io/AdsCourses/"
       },
       {
         title: "SQL for Marketing Analytics",
         description: "Use SQL to segment audiences and measure performance.",
-        link: "#"
+        link: "https://shivaprakash2221.github.io/AdsCourses/"
       }
     ];
 
@@ -137,7 +141,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         card.innerHTML = `
           <h3>${course.title}</h3>
           <p>${course.description}</p>
-          <button onclick="window.location.href='https://shivaprakash2221.github.io/AdsCourses/'">View Course</button>
+          <a href="${course.link}" class="course-link">View Course</a>
         `;
         container.appendChild(card);
       });
