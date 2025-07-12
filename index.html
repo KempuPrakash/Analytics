@@ -159,4 +159,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     function filterCourses() {
       const query = document.getElementById('searchInput').value.toLowerCase();
-      const filtered = courses.filter(c => c.title.toLowerCase().includes(qu
+      const filtered = courses.filter(c => c.title.toLowerCase().includes(query));
+      renderCourses(filtered);
+    }
+
+    // Initial load
+    renderCourses(courses);
+  </script>
+
+</body>
+</html>
