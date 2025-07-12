@@ -138,24 +138,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       courseList.forEach(course => {
         const card = document.createElement('div');
         card.className = 'card';
-        card.innerHTML = `
-          <h3>${course.title}</h3>
-          <p>${course.description}</p>
-          <a href="${course.link}" class="course-link">View Course</a>
-        `;
+
+        const title = document.createElement('h3');
+        title.textContent = course.title;
+
+        const description = document.createElement('p');
+        description.textContent = course.description;
+
+        const link = document.createElement('a');
+        link.href = course.link;
+        link.textContent = 'View Course';
+        link.className = 'course-link';
+
+        card.appendChild(title);
+        card.appendChild(description);
+        card.appendChild(link);
         container.appendChild(card);
       });
     }
 
     function filterCourses() {
       const query = document.getElementById('searchInput').value.toLowerCase();
-      const filtered = courses.filter(c => c.title.toLowerCase().includes(query));
-      renderCourses(filtered);
-    }
-
-    // Initial load
-    renderCourses(courses);
-  </script>
-
-</body>
-</html>
+      const filtered = courses.filter(c => c.title.toLowerCase().includes(qu
